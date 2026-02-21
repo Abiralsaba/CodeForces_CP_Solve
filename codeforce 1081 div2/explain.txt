@@ -1,0 +1,23 @@
+codeforces 1081 div2
+
+A - just check rotations, easy one
+
+B - tricky bit flip problem.
+ basically if you pick k indices, every other bit flips k times.
+  so if count of 1s is even, just pick all the 1 positions.
+   otherwise if count of 0s is odd, pick all 0 positions. else its impossible
+
+C - game theory stuff, worked out the math
+
+D - tree problem. for each node as root find best gain from moving a subtree deeper.
+ used dp going bottom up, tracked max depth with top-2 trick
+
+E - made a graph where each index is an edge between a[i] and b[i]. 
+then ran eulerian path to figure out which swaps to do. key insight:
+ each value needs to appear even number of times total
+
+F - interval dp. 
+track what intervals alice and bob have eaten. 
+if alice covers bob she wins, vice versa. 
+if you cant eat anything neighbors eat you.
+ memoize with packed int key cuz map was too slow
