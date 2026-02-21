@@ -1,0 +1,50 @@
+Codeforces Round 1077 (Div. 2) - Problem Explanations
+======================================================
+
+Problem A: Maximize the Difference
+----------------------------------
+What's the problem?
+You're given a number n, and you need to arrange numbers from 1 to n to maximize the sum of differences between consecutive elements.
+
+How I solved it:
+Alternate between smallest and largest remaining numbers, starting from the end. Placing small and large numbers next to each other creates maximum differences.
+
+Example: For n=5, we get [2, 4, 1, 5, 3] instead of [1, 2, 3, 4, 5]
+
+
+Problem B: Binary String Lights
+-------------------------------
+What's the problem?
+You have a binary string (0s and 1s). Find minimum number of "lit" positions needed. 1s are already lit, and each light can cover 3 positions.
+
+How I solved it:
+1. Count all existing 1s (already lit)
+2. For each segment of continuous 0s, check if bounded by 1s
+3. Remaining 0s need extra lights: (remaining + 2) / 3
+
+
+Problem C: Minimize the Difference
+----------------------------------
+What's the problem?
+Given an array, find one element to change so array becomes sorted. Find minimum "cost" where cost = max distance from original value to min or max of array.
+
+How I solved it:
+1. Sort a copy of the array
+2. Find elements that are "out of place" (bad elements)
+3. If already sorted, output -1
+4. For each bad element: cost = max(element - min, max - element)
+5. Return smallest cost
+
+
+Problem D: Bitwise AND Equals Zero
+----------------------------------
+What's the problem?
+Given x and y, find p and q where p AND q = 0, minimizing |x - p| + |y - q|.
+
+How I solved it:
+Bit manipulation - for AND to be 0, at each bit position, at least one of p or q must have 0.
+Try different strategies for each bit (0 to 31):
+- Set that bit in p, clear it in q
+- Set that bit in q, clear it in p
+- Round to powers of 2, use masks
+Track minimum cost across all combinations.
